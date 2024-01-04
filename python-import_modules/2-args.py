@@ -2,21 +2,22 @@
 
 import sys
 
-
-def print_arguments():
-
+def print_command_line_args():
     num_args = len(sys.argv) - 1
 
     if num_args == 0:
         print("No arguments.")
+    elif num_args == 1:
+        print("{} argument:".format(num_args))
     else:
-        plural_s = 's' if num_args > 1 else ''
-        print(f"Number of argument{plural_s}: {num_args}"
-              f"{'' if num_args == 1 else 's'}")
+        print("{} arguments:".format(num_args))
 
-        for i, arg in enumerate(sys.argv[1:], start=1):
-            print(f"{i}: {arg}")
-
+    if num_args >= 1:
+        position = 0
+        for argument in sys.argv:
+            if position != 0:
+                print("{}: {}".format(position, argument))
+            position += 1
 
 if __name__ == "__main__":
-    print_arguments()
+    print_command_line_args()
