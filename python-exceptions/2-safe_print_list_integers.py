@@ -5,7 +5,7 @@ def safe_print_list_integers(my_list=[], x=0):
     index = 0  # Index to access elements in the list
 
     try:
-        while count_integers < x:
+        while index < len(my_list) and count_integers < x:
             value = my_list[index]
             if isinstance(value, int):
                 print("{:d}".format(value), end=' ')
@@ -18,7 +18,7 @@ def safe_print_list_integers(my_list=[], x=0):
         return count_integers
 
 # Example usage:
-my_list = [1, 2, 'hello', 3, 'world', 4]
-x = 4
+my_list = [1, 2, 'H', 3, 4]
+x = len(my_list)
 result = safe_print_list_integers(my_list, x)
 print("Number of integers printed:", result)
