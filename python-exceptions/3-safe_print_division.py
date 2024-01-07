@@ -10,6 +10,5 @@ def safe_print_division(a, b):
         print("wrong type")
     finally:
         print("Inside result: {}".format(result))
-
-    return result
+        return result
 
