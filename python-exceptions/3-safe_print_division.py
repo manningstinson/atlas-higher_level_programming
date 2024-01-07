@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-
 def safe_print_division(a, b):
     result = None  # Initialize result before the try block
     try:
@@ -9,9 +8,9 @@ def safe_print_division(a, b):
     except (TypeError, ValueError):
         print("wrong type")
     finally:
-        if result is not None:
+        try:
             print("Inside result: {}".format(result))
-        else:
+        except UnboundLocalError:
             print("Inside result: None")
         return result
 
