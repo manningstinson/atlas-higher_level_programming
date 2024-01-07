@@ -7,12 +7,12 @@ def max_integer(my_list=[]):
         return None
 
     # Initialize a variable to store the biggest integer
-    biggest_integer = my_list[0]  # Start with the first element
+    biggest_integer = my_list[0]
 
-    # Loop through the list, starting from the second element
-    for num in my_list[1:]:  # Iterate from the second element onwards
+    # Loop through the list and compare each element to the current biggest
+    for num in my_list:
         if num > biggest_integer:
             biggest_integer = num
 
-            # Return the biggest integer
-            return biggest_integer
+    # Return the biggest integer
+    return biggest_integer
