@@ -12,7 +12,7 @@ def uniq_add(my_list=[]):
     # Sum the unique integers and return the result
     return sum(unique_integers)
 
-# Example usage:
-my_list = [1, 2, 3, 4, 2, 5, 3, 'not_an_integer', 6]
-result = uniq_add(my_list)
-print(result)
+# # Example usage:
+# my_list = [1, 2, 3, 4, 2, 5, 3, 'not_an_integer', 6]
+# result = uniq_add(my_list)
+# print(result)
