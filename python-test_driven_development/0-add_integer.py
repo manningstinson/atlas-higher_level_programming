@@ -1,5 +1,4 @@
-#!/usr/bin/env python3
-
+#!/usr/bin/python3
 """
 This module provides a function for adding two integers.
 
@@ -45,8 +44,3 @@ def add_integer(a, b=98):
         return int(result)
 
     raise ValueError("Result is NaN or not a valid integer.")
-
-# if __name__ == "__main__":
-#     # Example usage
-#     result = add_integer(5, 3)
-#     print(result)  # Output: 8

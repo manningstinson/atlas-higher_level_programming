@@ -1,0 +1,18 @@
+# Test cases for add_integer function
+# Correct output - case: 1 + 2
+>>> add_integer(1, 2)
+3
+
+# Correct output - case: 1 + -2
+>>> add_integer(1, -2)
+-1
+
+# Correct output - case: 1.4 + 2
+>>> add_integer(1.4, 2)
+3
+
+# Correct output - case: 1 + "2"
+>>> add_integer(1, "2")
+Traceback (most recent call last):
+    ...
+TypeError: a must be an integer or b must be an integer
