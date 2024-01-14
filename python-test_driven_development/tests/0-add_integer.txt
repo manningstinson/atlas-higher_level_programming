@@ -1,17 +1,65 @@
 import add_integer
 
-# Test cases
+# File: 0-add_integer.txt
 
->>> add_integer(1, 2)
-3
+===========================
+How to Use add_integer Function
+===========================
 
->>> add_integer(1, -2)
+This module defines an integer addition function ``add_integer(a, b=98)``.
+
+Usage
+=====
+
+The function returns the sum of its two arguments, casting them to integers if needed.
+
+Examples
+--------
+
+Basic Usage:
+
+```python
+>>> add_integer(2, 3)
+5
+
+>>> add_integer(2, -3)
 -1
 
->>> add_integer(1.4, 2)
-3
+>>> add_integer(2.0, 3.0)
+5
 
->>> add_integer(1, "2")
+>>> add_integer(2.0, 3.0)
+5
+
+>>> add_integer(2)
+100
+
+>>> add_integer("hello", 3)
 Traceback (most recent call last):
     ...
-TypeError: a must be an integer or b must be an integer
+TypeError: a must be an integer
+
+>>> add_integer(2, "hello")
+Traceback (most recent call last):
+    ...
+TypeError: b must be an integer
+
+>>> add_integer(float('inf'))
+Traceback (most recent call last):
+    ...
+OverflowError: cannot convert float infinity to integer
+
+>>> add_integer(2, float('inf'))
+Traceback (most recent call last):
+    ...
+OverflowError: cannot convert float infinity to integer
+
+>>> add_integer(float('nan'))
+Traceback (most recent call last):
+    ...
+ValueError: cannot convert float NaN to integer
+
+>>> add_integer(2, float('nan'))
+Traceback (most recent call last):
+    ...
+ValueError: cannot convert float NaN to integer
