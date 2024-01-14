@@ -1,17 +1,16 @@
-# Test cases for add_integer function
-# Correct output - case: 1 + 2
+from my_module import add_integer
+
+# Test cases
+
 >>> add_integer(1, 2)
 3
 
-# Correct output - case: 1 + -2
 >>> add_integer(1, -2)
 -1
 
-# Correct output - case: 1.4 + 2
 >>> add_integer(1.4, 2)
 3
 
-# Incorrect output - case: 1 + "2"
 >>> add_integer(1, "2")
 Traceback (most recent call last):
     ...

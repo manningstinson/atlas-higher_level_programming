@@ -1,13 +1,6 @@
 #!/usr/bin/python3
 """
 This module provides a function for adding two integers.
-
-Functions:
-    add_integer(a, b=98): Adds two integers.
-
-Usage:
-    result = add_integer(5, 3)
-    print(result)  # Output: 8
 """
 
 
@@ -27,6 +20,7 @@ def add_integer(a, b=98):
         TypeError: If a or b is not an integer or float.
         ValueError: If a or b is NaN.
     """
+
     if not isinstance(a, (int, float)):
         raise TypeError("a must be an integer or b must be an integer")
     if not isinstance(b, (int, float)):
@@ -39,3 +33,4 @@ def add_integer(a, b=98):
         raise ValueError("a must be an integer or b must be an integer")
 
     return int(a + b)
+
