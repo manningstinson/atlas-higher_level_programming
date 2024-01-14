@@ -1,5 +1,6 @@
 # Test cases for add_integer function
 # Correct output - case: 1 + 2
+>>> from 0-add_integer import add_integer
 >>> add_integer(1, 2)
 3
 
@@ -11,7 +12,7 @@
 >>> add_integer(1.4, 2)
 3
 
-# Correct output - case: 1 + "2"
+# Incorrect output - case: 1 + "2"
 >>> add_integer(1, "2")
 Traceback (most recent call last):
     ...
