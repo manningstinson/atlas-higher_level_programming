@@ -1,4 +1,4 @@
-from my_module import add_integer
+import add_integer
 
 # Test cases
 
