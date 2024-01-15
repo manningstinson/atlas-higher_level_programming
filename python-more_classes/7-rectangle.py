@@ -80,24 +80,22 @@ class Rectangle:
 #     my_rectangle_1 = Rectangle(8, 4)
 #     print(my_rectangle_1)
 #     print("--")
-#     my_rectangle_1.print_symbol = "&"
+#     my_rectangle_1.print_symbol = "H"
 #     print(my_rectangle_1)
-#     print("--")
 
 #     my_rectangle_2 = Rectangle(2, 1)
 #     print(my_rectangle_2)
 #     print("--")
-#     Rectangle.print_symbol = "C"
+#     Rectangle.print_symbol = "K"
 #     print(my_rectangle_2)
-#     print("--")
 
-#     my_rectangle_3 = Rectangle(7, 3)
+#     my_rectangle_3 = Rectangle(8, 4)
+#     my_rectangle_3.print_symbol = 89
 #     print(my_rectangle_3)
-#     print("--")
 
-#     my_rectangle_3.print_symbol = ["C", "is", "fun!"]
-#     print(my_rectangle_3)
-#     print("--")
+#     my_rectangle_4 = Rectangle(8, 4)
+#     my_rectangle_4.print_symbol = ["Holberton", "School"]
+#     print(my_rectangle_4)
 
 #     print("Number of instances:", Rectangle.number_of_instances)
 #     del my_rectangle_1
