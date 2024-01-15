@@ -66,25 +66,10 @@ class Rectangle:
         return "\n".join(["#" * self.__width for _ in range(self.__height)])
 
     def __repr__(self):
-        """Returns a string representation of the rectangle for reproduction."""
+        """Returns a string representation of the rectangle/reproduction"""
         return "Rectangle({}, {})".format(self.__width, self.__height)
 
     def __del__(self):
         """Prints a message when an instance of Rectangle is deleted."""
         print("Bye rectangle...")
         Rectangle.number_of_instances -= 1
-
-
-# # Example Usage:
-# if __name__ == "__main__":
-#     my_rectangle_1 = Rectangle(2, 4)
-#     print("{:d} instances of Rectangle".format(Rectangle.number_of_instances))
-
-#     my_rectangle_2 = Rectangle(2, 4)
-#     print("{:d} instances of Rectangle".format(Rectangle.number_of_instances))
-
-#     del my_rectangle_1
-#     print("{:d} instances of Rectangle".format(Rectangle.number_of_instances))
-
-#     del my_rectangle_2
-#     print("{:d} instances of Rectangle".format(Rectangle.number_of_instances))
