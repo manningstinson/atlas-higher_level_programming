@@ -64,7 +64,7 @@ class Rectangle:
 
     def __str__(self):
         """Returns a string representation of the rectangle using the print_symbol."""
-        return "\n".join([str(Rectangle.print_symbol) * self.__width] * self.__height)
+        return "\n".join([str(Rectangle.print_symbol) * self.__width for _ in range(self.__height)])
 
     def __repr__(self):
         """Returns a string representation of the rectangle for recreation using eval()."""
@@ -75,30 +75,30 @@ class Rectangle:
         print("Bye rectangle...")
         Rectangle.number_of_instances -= 1
 
-# # Example usage
-# if __name__ == "__main__":
-#     my_rectangle_1 = Rectangle(8, 4)
-#     print(my_rectangle_1)
-#     print("--")
-#     my_rectangle_1.print_symbol = "H"
-#     print(my_rectangle_1)
+# Example usage
+if __name__ == "__main__":
+    my_rectangle_1 = Rectangle(8, 4)
+    print(my_rectangle_1)
+    print("--")
+    my_rectangle_1.print_symbol = "H"
+    print(my_rectangle_1)
 
-#     my_rectangle_2 = Rectangle(2, 1)
-#     print(my_rectangle_2)
-#     print("--")
-#     Rectangle.print_symbol = "K"
-#     print(my_rectangle_2)
+    my_rectangle_2 = Rectangle(2, 1)
+    print(my_rectangle_2)
+    print("--")
+    Rectangle.print_symbol = "K"
+    print(my_rectangle_2)
 
-#     my_rectangle_3 = Rectangle(8, 4)
-#     my_rectangle_3.print_symbol = 89
-#     print(my_rectangle_3)
+    my_rectangle_3 = Rectangle(8, 4)
+    my_rectangle_3.print_symbol = 89
+    print(my_rectangle_3)
 
-#     my_rectangle_4 = Rectangle(8, 4)
-#     my_rectangle_4.print_symbol = ["Holberton", "School"]
-#     print(my_rectangle_4)
+    my_rectangle_4 = Rectangle(8, 4)
+    my_rectangle_4.print_symbol = ["Holberton", "School"]
+    print(my_rectangle_4)
 
-#     print("Number of instances:", Rectangle.number_of_instances)
-#     del my_rectangle_1
-#     print("Number of instances:", Rectangle.number_of_instances)
-#     del my_rectangle_2
-#     print("Number of instances:", Rectangle.number_of_instances)
+    print("Number of instances:", Rectangle.number_of_instances)
+    del my_rectangle_1
+    print("Number of instances:", Rectangle.number_of_instances)
+    del my_rectangle_2
+    print("Number of instances:", Rectangle.number_of_instances)
