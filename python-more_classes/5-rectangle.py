@@ -60,25 +60,12 @@ class Rectangle:
         """Returns a string representation of the rectangle."""
         if self.__width == 0 or self.__height == 0:
             return ""
-        return "\n".join([str("#") * self.__width for _ in range(self.__height)])
+        return "\n".join(["#" * self.__width for _ in range(self.__height)])
 
     def __repr__(self):
-        """Returns a string representation of the rectangle for reproduction."""
+        """Returns a string representation of the rectangle/reproduction."""
         return "Rectangle({}, {})".format(self.__width, self.__height)
 
     def __del__(self):
         """Prints a message when an instance of Rectangle is deleted."""
         print("Bye rectangle...")
-
-
-# # Example Usage:
-# if __name__ == "__main__":
-#     my_rectangle = Rectangle(2, 4)
-#     print("Area: {} - Perimeter: {}".format(my_rectangle.area(), my_rectangle.perimeter()))
-
-#     del my_rectangle
-
-#     try:
-#         print(my_rectangle)
-#     except Exception as e:
-#         print("[{}] {}".format(e.__class__.__name__, e))
