@@ -63,21 +63,5 @@ class Rectangle:
         return "\n".join(["#" * self.__width for _ in range(self.__height)])
 
     def __repr__(self):
-        """Returns a string representation of the rectangle for reproduction."""
+        """Returns a string representation of the rectangle/reproduction"""
         return "Rectangle({}, {})".format(self.__width, self.__height)
-
-
-# # Example Usage:
-# if __name__ == "__main__":
-#     my_rectangle = Rectangle(2, 4)
-#     print("Area: {} - Perimeter: {}".format(my_rectangle.area(), my_rectangle.perimeter()))
-
-#     print(str(my_rectangle))
-#     print(repr(my_rectangle))
-
-#     print("--")
-
-#     my_rectangle.width = 10
-#     my_rectangle.height = 3
-#     print(my_rectangle)
-#     print(repr(my_rectangle))
