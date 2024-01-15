@@ -1,25 +1,11 @@
 #!/usr/bin/python3
-"""
-Rectangle module - Defines the Rectangle class.
-"""
-
-
 class Rectangle:
-    """
-    Rectangle class with private width and height attributes.
-    """
-
+    """Rectangle class with private width and height attributes."""
     number_of_instances = 0
-    print_symbol = "#"
+    print_symbol = '#'
 
     def __init__(self, width=0, height=0):
-        """
-        Initializes a Rectangle instance.
-
-        Args:
-            width (int): Width of the rectangle (default is 0).
-            height (int): Height of the rectangle (default is 0).
-        """
+        """Initializes a Rectangle instance."""
         self.width = width
         self.height = height
         Rectangle.number_of_instances += 1
@@ -61,42 +47,16 @@ class Rectangle:
         return 2 * (self.__width + self.__height)
 
     def __str__(self):
-        """String representation of the rectangle."""
+        """Returns a string representation of the rectangle."""
         if self.__width == 0 or self.__height == 0:
             return ""
         return "\n".join([str(Rectangle.print_symbol) * self.__width] * self.__height)
 
     def __repr__(self):
-        """String representation of the rectangle for recreation."""
+        """Returns a string representation of the rectangle for recreation."""
         return "Rectangle({}, {})".format(self.__width, self.__height)
 
     def __del__(self):
-        """Destructor method when an instance is deleted."""
+        """Prints a message when an instance of Rectangle is deleted."""
         print("Bye rectangle...")
         Rectangle.number_of_instances -= 1
-
-
-# Example Usage:
-# my_rectangle_1 = Rectangle(8, 4)
-# print(my_rectangle_1)
-# print("--")
-# my_rectangle_1.print_symbol = "&"
-# print(my_rectangle_1)
-# print("--")
-#
-# my_rectangle_2 = Rectangle(2, 1)
-# print(my_rectangle_2)
-# print("--")
-# Rectangle.print_symbol = "C"
-# print(my_rectangle_2)
-# print("--")
-#
-# my_rectangle_3 = Rectangle(7, 3)
-# print(my_rectangle_3)
-#
-# print("--")
-#
-# my_rectangle_3.print_symbol = ["C", "is", "fun!"]
-# print(my_rectangle_3)
-#
-# print("--")
