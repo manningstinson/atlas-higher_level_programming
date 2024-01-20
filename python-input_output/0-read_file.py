@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+
 """
 This module provides a function to read the content of a text file
 Print it to stdout.
