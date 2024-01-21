@@ -1,41 +1,47 @@
 #!/usr/bin/python3
 """
-Module 7-base_geometry
-Defines a BaseGeometry class.
+Module 9-rectangle.py
+Defines a Rectangle class that inherits from BaseGeometry.
 """
 
+BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
-class BaseGeometry:
+
+class Rectangle(BaseGeometry):
     """
-    A class representing a base geometry.
+    Represents a rectangle.
     """
+
+    def __init__(self, width, height):
+        """
+        Initializes a new instance of the Rectangle class.
+
+        Parameters:
+        - width (int): The width of the rectangle.
+        - height (int): The height of the rectangle.
+        """
+        super().__init__()
+        self.integer_validator("width", width)
+        self.integer_validator("height", height)
+        self.__width = width
+        self.__height = height
 
     def area(self):
         """
-        Computes the area of the geometry.
-
-        Raises:
-            Exception: If area is not implemented.
+        Computes the area of the rectangle.
 
         Returns:
-            int: The area of the geometry.
+        - The area of the rectangle.
         """
-        raise Exception("area() is not implemented")
+        return self.__width * self.__height
 
-    def integer_validator(self, name, value):
+    def __str__(self):
         """
-        Validates the value.
+        Returns a string representation of the rectangle.
 
-        Args:
-            name (str): The name of the value.
-            value (int): The value to be validated.
+        Format: [Rectangle] <width>/<height>
 
-        Raises:
-            TypeError: If value is not an integer.
-            ValueError: If value is less than or equal to 0.
+        Returns:
+        - String representation of the rectangle.
         """
-        if type(value) is not int:
-            raise TypeError("{} must be an integer".format(name))
-        if value <= 0:
-            raise ValueError("{} must be greater than 0".format(name))
-        return value
+        return "[Rectangle] {}/{}".format(self.__width, self.__height)
