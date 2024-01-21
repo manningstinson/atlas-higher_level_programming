@@ -1,10 +1,26 @@
-#!/usr/bin/python3
-"""
-Test for MyList class methods.
-"""
+# This is a test file for the MyList class
 
-if __name__ == "__main__":
-    import doctest
-    from my_list import MyList
+# Test the print_sorted method with a basic list
+>>> my_list = MyList()
+>>> my_list.append(4)
+>>> my_list.append(2)
+>>> my_list.append(1)
+>>> my_list.print_sorted()
+[1, 2, 4]
 
-    doctest.testmod()
+# Test that the original list remains unsorted
+>>> my_list
+[4, 2, 1]
+
+# Test with an empty list
+>>> empty_list = MyList()
+>>> empty_list.print_sorted()
+[]
+
+# Test with a list containing negative numbers
+>>> negative_list = MyList()
+>>> negative_list.append(-5)
+>>> negative_list.append(3)
+>>> negative_list.append(-1)
+>>> negative_list.print_sorted()
+[-5, -1, 3]
