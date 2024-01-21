@@ -37,20 +37,20 @@ def lookup(obj):
     return filtered_attributes
 
 
-# Test cases
+# # Test cases
 
 
-class MyClass1(object):
-    pass
+# class MyClass1(object):
+#     pass
 
 
-class MyClass2(object):
-    my_attr1 = 3
+# class MyClass2(object):
+#     my_attr1 = 3
 
-    def my_meth(self):
-        pass
+#     def my_meth(self):
+#         pass
 
 
-print(lookup(MyClass1))
-print(lookup(MyClass2))
-print(lookup(int))
+# print(lookup(MyClass1))
+# print(lookup(MyClass2))
+# print(lookup(int))
