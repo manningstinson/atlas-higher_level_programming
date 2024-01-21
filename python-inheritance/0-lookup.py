@@ -32,8 +32,8 @@ def lookup(obj):
     # Remove the filtering condition to include all attributes and methods
     return all_attributes
 
-# Example usage
-if __name__ == "__main__":
-    example_object = 42  # Replace with the object you want to inspect
-    result = lookup(example_object)
-    print(result)
+# # Example usage
+# if __name__ == "__main__":
+#     example_object = 42  # Replace with the object you want to inspect
+#     result = lookup(example_object)
+#     print(result)
