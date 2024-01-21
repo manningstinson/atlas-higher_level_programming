@@ -1,19 +1,13 @@
 #!/usr/bin/python3
 
 """
-Module: object_inspector
+Module: 0-lookup
 
 This module provides a function to inspect an object
 and return a list of its available attributes and methods.
 
 Functions:
 - lookup(obj): Returns a list containing the names of attributes and methods of the object.
-
-Usage:
-Example usage is demonstrated at the end of the file.
-
-Note:
-This module does not import any external modules.
 """
 
 def lookup(obj):
@@ -29,10 +23,21 @@ def lookup(obj):
     # Get all attributes and methods of the object
     all_attributes = dir(obj)
 
-    # Filter attributes and methods starting with '__' and additional exclusions
-    filtered_attributes = [
-        a for a in all_attributes
-        if a.startswith('__') and a not in ['__ceil__', '__floor__', 'is_integer']
-    ]
+    # Filter attributes and methods starting with '__'
+    filtered_attributes = [a for a in all_attributes if not a.startswith('__')]
 
     return filtered_attributes
+
+# Example usage
+if __name__ == "__main__":
+    class MyClass1(object):
+        pass
+
+    class MyClass2(object):
+        my_attr1 = 3
+        def my_meth(self):
+            pass
+
+    print(lookup(MyClass1))
+    print(lookup(MyClass2))
+    print(lookup(int))
