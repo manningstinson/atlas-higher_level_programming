@@ -1,0 +1,10 @@
+#!/usr/bin/python3
+"""
+Test for MyList class methods.
+"""
+
+if __name__ == "__main__":
+    import doctest
+    from my_list import MyList
+
+    doctest.testmod()
