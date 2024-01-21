@@ -7,7 +7,8 @@ This module provides a function to inspect an object
 and return a list of its available attributes and methods.
 
 Functions:
-- lookup(obj): Returns a list containing the names of attributes and methods of the object.
+- lookup(obj): Returns a list containing the names
+of attributes and methods of the object.
 
 Usage:
 Example usage is demonstrated at the end of the file.
@@ -15,6 +16,7 @@ Example usage is demonstrated at the end of the file.
 Note:
 This module does not import any external modules.
 """
+
 
 def lookup(obj):
     """
