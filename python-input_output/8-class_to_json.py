@@ -26,14 +26,14 @@ def class_to_json(obj):
     return obj_dict
 
 
-if __name__ == "__main__":
-    # Test cases
-    MyClass = __import__('8-my_class').MyClass
-    m = MyClass("John")
-    m.number = 89
-    print(type(m))
-    print(m)
+# if __name__ == "__main__":
+    # # Test cases
+    # MyClass = __import__('8-my_class').MyClass
+    # m = MyClass("John")
+    # m.number = 89
+    # print(type(m))
+    # print(m)
 
-    mj = class_to_json(m)
-    print(type(mj))
-    print(mj)
+    # mj = class_to_json(m)
+    # print(type(mj))
+    # print(mj)
