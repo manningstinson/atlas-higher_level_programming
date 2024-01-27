@@ -75,17 +75,7 @@ class Rectangle(Base):
             raise ValueError("y must be >= 0")
         self.__y = value
 
-    def area(self):
-        """ Calculate and return the area of the Rectangle """
-        return self.width * self.height
-
-    def display(self):
-        """ Display the Rectangle instance using '#' """
-        for _ in range(self.height):
-            print("#" * self.width)
-
     def __str__(self):
-        """ Override __str__ method to return formatted string """
+        """ String representation of the object """
         return "[Rectangle] ({}) {}/{} - {}/{}".format(
-            self.id, self.x, self.y, self.width, self.height
-        )
+            self.id, self.x, self.y, self.width, self.height)
