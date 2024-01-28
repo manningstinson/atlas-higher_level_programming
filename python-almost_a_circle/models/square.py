@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-
 """ Square Module """
 
 from models.rectangle import Rectangle
@@ -25,6 +24,10 @@ class Square(Rectangle):
         self.width = value
         self.height = value
 
+    def area(self):
+        """ Returns the area of the square """
+        return self.width * self.height
+
     def __str__(self):
         """ String representation of the object """
         return "[Square] ({}) {}/{} - {}".format(
@@ -46,4 +49,5 @@ class Square(Rectangle):
 
     def to_dictionary(self):
         """ Returns the dictionary representation of a Square """
-        return {'id': self.id, 'size': self.size, 'x': self.x, 'y': self.y}
+        return
+        {'id': self.id, 'size': self.size, 'x': self.x, 'y': self.y}
