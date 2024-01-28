@@ -13,8 +13,7 @@ class Square(Rectangle):
 
     def __str__(self):
         """Return a string representation of the Square"""
-        return "[Square] ({}) {}/{} - {}".format
-        (self.id, self.x, self.y, self.width)
+        return "[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y, self.width)
 
     def area(self):
         """Return the area of the Square"""
@@ -22,24 +21,9 @@ class Square(Rectangle):
 
     # Additional methods or overrides can be added here if needed
 
-
 if __name__ == "__main__":
     # Example usage as described in the prompt
-    s1 = Square(5)
+    s1 = Square(2)
     print(s1)
-    print(s1.area())
-    s1.display()
-
-    print("---")
-
-    s2 = Square(2, 2)
-    print(s2)
-    print(s2.area())
-    s2.display()
-
-    print("---")
-
-    s3 = Square(3, 1, 3)
-    print(s3)
-    print(s3.area())
-    s3.display()
+    if str(s1) != "[Square] (1) 0/0 - 2":
+        print("Error in __str__ method for Square class")
