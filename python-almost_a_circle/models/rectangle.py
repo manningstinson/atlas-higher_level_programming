@@ -93,9 +93,11 @@ class Rectangle(Base):
         # Define the order of attributes and their corresponding names
         attr_names = ["id", "width", "height", "x", "y"]
 
-        # Iterate through the given arguments and update the corresponding attribute
+        # Iterate through the given arguments
+        # and update the corresponding attribute
         for i, arg in enumerate(args):
             setattr(self, attr_names[i], arg)
+
 
 if __name__ == "__main__":
     r1 = Rectangle(10, 10, 10, 10)
