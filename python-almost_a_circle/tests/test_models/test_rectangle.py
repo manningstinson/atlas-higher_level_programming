@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+
 """Unit tests for models.rectangle"""
 
 import unittest

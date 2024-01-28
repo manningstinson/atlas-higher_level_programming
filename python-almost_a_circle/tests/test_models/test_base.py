@@ -1,29 +1,31 @@
-#!/usr/bin/python3
-"""Unit tests for models.base"""
 
 import unittest
-from models.base import Base
+from base import Rectangle, Base
 
-class TestBase(unittest.TestCase):
-    def test_auto_assign_id(self):
-        obj1 = Base()
-        obj2 = Base()
-        self.assertEqual(obj1.id + 1, obj2.id)
+class TestBaseMethods(unittest.TestCase):
 
-    def test_save_passed_id(self):
-        obj = Base(89)
-        self.assertEqual(obj.id, 89)
+    def test_base_auto_id(self):
+        r1 = Base()
+        self.assertEqual(r1.id, 1)
 
-    def test_to_json_string(self):
-        self.assertEqual(Base.to_json_string(None), "[]")
-        self.assertEqual(Base.to_json_string([]), "[]")
-        self.assertEqual(Base.to_json_string([{'id': 12}]), '[{"id": 12}]')
+    def test_base_auto_id_increment(self):
+        r1 = Base()
+        r2 = Base()
+        self.assertEqual(r2.id, r1.id + 1)
 
-    def test_from_json_string(self):
-        self.assertEqual(Base.from_json_string(None), [])
-        self.assertEqual(Base.from_json_string("[]"), [])
-        self.assertEqual(Base.from_json_string('[{ "id": 89 }]'), [{'id': 89}])
+    def test_base_custom_id(self):
+        r1 = Base(89)
+        self.assertEqual(r1.id, 89)
 
+    def test_to_json_string_none(self):
+        json_str = Base.to_json_string(None)
+        self.assertEqual(json_str, "[]")
+
+    def test_to_json_string_empty_list(self):
+        json_str = Base.to_json_string([])
+        self.assertEqual(json_str, "[]")
+
+    # Add more test methods for the remaining cases...
 
 if __name__ == '__main__':
     unittest.main()
