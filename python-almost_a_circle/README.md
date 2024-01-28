@@ -1,6 +1,8 @@
-Author: Manning Stinson
+# Author
 
-In this project, you will review everything about Python:
+Manning Stinson
+
+## In this project, you will review everything about Python:
 
 Import
 Exceptions
