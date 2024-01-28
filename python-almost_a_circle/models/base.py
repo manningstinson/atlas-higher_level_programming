@@ -81,7 +81,8 @@ class Base:
         Returns:
             Base: Instance with attributes set.
         """
-        dummy_instance = cls(1)  # Create a dummy instance with arbitrary ID (1)
+        # Include 'width' and 'height' as arguments when creating the dummy instance
+        dummy_instance = cls(1, 1)  # Create a dummy instance with arbitrary ID (1), width (1), and height (1)
         dummy_instance.update(**dictionary)  # Update with real values
         return dummy_instance
 
@@ -132,3 +133,13 @@ class Rectangle(Base):
         self.height = height
         self.x = x
         self.y = y
+
+
+if __name__ == "__main__":
+    r1 = Rectangle.create(**{'width': 2, 'height': 3})
+    r2 = Rectangle.create(**{'width': 2, 'height': 3, 'x': 12})
+    r3 = Rectangle.create(**{'width': 2, 'height': 3, 'x': 12, 'y': 1, 'id': 89})
+
+    print(r1)
+    print(r2)
+    print(r3)
