@@ -109,3 +109,26 @@ class Base:
             dict: Dictionary representing the instance.
         """
         return {key: getattr(self, key) for key in ['id', 'width', 'height', 'x', 'y']}
+
+
+class Rectangle(Base):
+    """
+    Rectangle class, inherits from Base
+    """
+
+    def __init__(self, width, height, x=0, y=0, id=None):
+        """
+        Constructor method for Rectangle
+
+        Args:
+            width (int): Width of the rectangle.
+            height (int): Height of the rectangle.
+            x (int): X-coordinate of the rectangle.
+            y (int): Y-coordinate of the rectangle.
+            id (int): Object identifier.
+        """
+        super().__init__(id)
+        self.width = width
+        self.height = height
+        self.x = x
+        self.y = y
