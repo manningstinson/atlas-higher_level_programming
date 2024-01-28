@@ -69,3 +69,43 @@ class Base:
         if json_string is None or json_string == "":
             return []
         return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """
+        Create an instance with all attributes set using the provided dictionary.
+
+        Args:
+            **dictionary: Dictionary containing attribute values.
+
+        Returns:
+            Base: Instance with attributes set.
+        """
+        dummy_instance = cls(1)  # Create a dummy instance with arbitrary ID (1)
+        dummy_instance.update(**dictionary)  # Update with real values
+        return dummy_instance
+
+    def update(self, *args, **kwargs):
+        """
+        Update instance attributes with values from args and kwargs.
+
+        Args:
+            *args: Positional arguments.
+            **kwargs: Keyword arguments.
+        """
+        if args:
+            attributes = ['id', 'width', 'height', 'x', 'y'][:len(args)]
+            for attr, value in zip(attributes, args):
+                setattr(self, attr, value)
+        elif kwargs:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
+
+    def to_dictionary(self):
+        """
+        Return the dictionary representation of the instance.
+
+        Returns:
+            dict: Dictionary representing the instance.
+        """
+        return {key: getattr(self, key) for key in ['id', 'width', 'height', 'x', 'y']}
