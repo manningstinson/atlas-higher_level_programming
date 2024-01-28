@@ -29,12 +29,13 @@ class TestRectangle(unittest.TestCase):
 
     def test_area(self):
         r = Rectangle(1, 2)
-        self.assertEqual(r.area(), 2)
+        self.assertEqual(r.get_area(), 2)
 
     def test_to_dictionary(self):
-        r = Rectangle(1, 2, 3, 4, 5)
-        self.assertEqual(r.to_dictionary(), {'id': 5, 'width': 1, 'height': 2, 'x': 3, 'y': 4})
-
+        r = Rectangle(5, 10, 2, 4)  # Omitting id to let it auto-increment
+        expected_dict = {'id': r.id, 'width': 5, 'height': 10, 'x': 2, 'y': 4}
+        r_dict = r.to_dictionary()
+        self.assertEqual(r_dict, expected_dict)
 
 if __name__ == '__main__':
     unittest.main()
