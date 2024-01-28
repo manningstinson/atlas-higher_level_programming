@@ -1,3 +1,4 @@
+# models/square.py
 #!/usr/bin/python3
 """Module that defines the Square class"""
 from models.rectangle import Rectangle
@@ -15,7 +16,7 @@ class Square(Rectangle):
 
     def area(self):
         """Return the area of the Square"""
-        return super().area()
+        return self.width * self.height
 
     # Additional methods or overrides can be added here if needed
 
