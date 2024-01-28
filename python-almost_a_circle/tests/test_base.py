@@ -1,6 +1,6 @@
 
 import sys
-sys.path.append("/atlas-higher_level_programming/python-almost_a_circle/tests")
+sys.path.append("/atlas-higher_level_programming/python-almost_a_circle/models")
 
 import unittest
 from models.base import Base
