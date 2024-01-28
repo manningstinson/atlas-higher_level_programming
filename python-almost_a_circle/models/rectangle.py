@@ -86,3 +86,32 @@ class Rectangle(Base):
             print()
         for _ in range(self.height):
             print(" " * self.x + "#" * self.width)
+
+    def update(self, *args):
+        """ Update the attributes of the rectangle """
+
+        # Define the order of attributes and their corresponding names
+        attr_names = ["id", "width", "height", "x", "y"]
+
+        # Iterate through the given arguments and update the corresponding attribute
+        for i, arg in enumerate(args):
+            setattr(self, attr_names[i], arg)
+
+if __name__ == "__main__":
+    r1 = Rectangle(10, 10, 10, 10)
+    print(r1)
+
+    r1.update(89)
+    print(r1)
+
+    r1.update(89, 2)
+    print(r1)
+
+    r1.update(89, 2, 3)
+    print(r1)
+
+    r1.update(89, 2, 3, 4)
+    print(r1)
+
+    r1.update(89, 2, 3, 4, 5)
+    print(r1)
