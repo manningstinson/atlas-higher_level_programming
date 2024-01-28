@@ -23,9 +23,9 @@ class Square(Rectangle):
     # Additional methods or overrides can be added here if needed
 
 
-if __name__ == "__main__":
-    # Example usage as described in the prompt
-    s1 = Square(2)
-    print(s1)
-    if str(s1) != "[Square] (1) 0/0 - 2":
-        print("Error in __str__ method for Square class")
+# if __name__ == "__main__":
+#     # Example usage as described in the prompt
+#     s1 = Square(2)
+#     print(s1)
+#     if str(s1) != "[Square] (1) 0/0 - 2":
+#         print("Error in __str__ method for Square class")
