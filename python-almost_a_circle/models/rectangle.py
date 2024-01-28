@@ -87,33 +87,32 @@ class Rectangle(Base):
         for _ in range(self.height):
             print(" " * self.x + "#" * self.width)
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """ Update the attributes of the rectangle """
 
         # Define the order of attributes and their corresponding names
         attr_names = ["id", "width", "height", "x", "y"]
 
-        # Iterate through the given arguments
-        # and update the corresponding attribute
+        # Update attributes using positional arguments
         for i, arg in enumerate(args):
             setattr(self, attr_names[i], arg)
 
+        # Update attributes using keyword arguments
+        for key, value in kwargs.items():
+            setattr(self, key, value)
 
 if __name__ == "__main__":
     r1 = Rectangle(10, 10, 10, 10)
     print(r1)
 
-    r1.update(89)
+    r1.update(height=1)
     print(r1)
 
-    r1.update(89, 2)
+    r1.update(width=1, x=2)
     print(r1)
 
-    r1.update(89, 2, 3)
+    r1.update(y=1, width=2, x=3, id=89)
     print(r1)
 
-    r1.update(89, 2, 3, 4)
-    print(r1)
-
-    r1.update(89, 2, 3, 4, 5)
+    r1.update(x=1, height=2, y=3, width=4)
     print(r1)
