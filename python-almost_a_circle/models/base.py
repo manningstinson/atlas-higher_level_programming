@@ -81,8 +81,7 @@ class Base:
         Returns:
             Base: Instance with attributes set.
         """
-        # Include 'width' and 'height' as arguments when creating the dummy instance
-        dummy_instance = cls(1, 1)  # Create a dummy instance with arbitrary ID (1), width (1), and height (1)
+        dummy_instance = cls(1)  # Create a dummy instance with arbitrary ID (1)
         dummy_instance.update(**dictionary)  # Update with real values
         return dummy_instance
 
@@ -94,12 +93,9 @@ class Base:
             *args: Positional arguments.
             **kwargs: Keyword arguments.
         """
-        if args:
-            attributes = ['id', 'width', 'height', 'x', 'y'][:len(args)]
-            for attr, value in zip(attributes, args):
-                setattr(self, attr, value)
-        elif kwargs:
-            for key, value in kwargs.items():
+        valid_attributes = ['id', 'width', 'height', 'x', 'y', 'size']
+        for key, value in kwargs.items():
+            if key in valid_attributes:
                 setattr(self, key, value)
 
     def to_dictionary(self):
@@ -109,7 +105,7 @@ class Base:
         Returns:
             dict: Dictionary representing the instance.
         """
-        return {key: getattr(self, key) for key in ['id', 'width', 'height', 'x', 'y']}
+        return {key: getattr(self, key) for key in ['id', 'width', 'height', 'x', 'y', 'size']}
 
 
 class Rectangle(Base):
@@ -135,11 +131,24 @@ class Rectangle(Base):
         self.y = y
 
 
-if __name__ == "__main__":
-    r1 = Rectangle.create(**{'width': 2, 'height': 3})
-    r2 = Rectangle.create(**{'width': 2, 'height': 3, 'x': 12})
-    r3 = Rectangle.create(**{'width': 2, 'height': 3, 'x': 12, 'y': 1, 'id': 89})
+class Square(Rectangle):
+    """
+    Square class, inherits from Rectangle
+    """
 
-    print(r1)
-    print(r2)
-    print(r3)
+    def __init__(self, size, x=0, y=0, id=None):
+        """
+        Constructor method for Square
+
+        Args:
+            size (int): Size of the square.
+            x (int): X-coordinate of the square.
+            y (int): Y-coordinate of the square.
+            id (int): Object identifier.
+        """
+        super().__init__(size, size, x, y, id)
+
+
+if __name__ == "__main__":
+    s1 = Square.create(**{'size': 2})
+    print(s1)
