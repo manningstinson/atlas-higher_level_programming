@@ -4,24 +4,25 @@
 import unittest
 from models.base import Base
 
-
 class TestBase(unittest.TestCase):
-    def test_constructor_with_id(self):
-        obj = Base(5)
-        self.assertEqual(obj.id, 5)
-
-    def test_constructor_without_id(self):
+    def test_auto_assign_id(self):
         obj1 = Base()
         obj2 = Base()
-        self.assertEqual(obj1.id, obj2.id - 1)
+        self.assertEqual(obj1.id + 1, obj2.id)
 
-    def test_to_json_string_empty_list(self):
-        json_str = Base.to_json_string([])
-        self.assertEqual(json_str, "[]")
+    def test_save_passed_id(self):
+        obj = Base(89)
+        self.assertEqual(obj.id, 89)
 
-    def test_to_json_string_non_empty_list(self):
-        json_str = Base.to_json_string([{'key': 'value'}])
-        self.assertEqual(json_str, '[{"key": "value"}]')
+    def test_to_json_string(self):
+        self.assertEqual(Base.to_json_string(None), "[]")
+        self.assertEqual(Base.to_json_string([]), "[]")
+        self.assertEqual(Base.to_json_string([{'id': 12}]), '[{"id": 12}]')
+
+    def test_from_json_string(self):
+        self.assertEqual(Base.from_json_string(None), [])
+        self.assertEqual(Base.from_json_string("[]"), [])
+        self.assertEqual(Base.from_json_string('[{ "id": 89 }]'), [{'id': 89}])
 
 
 if __name__ == '__main__':
