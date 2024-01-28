@@ -73,7 +73,8 @@ class Base:
     @classmethod
     def create(cls, **dictionary):
         """
-        Create an instance with all attributes set using the provided dictionary.
+        Create an instance with all
+        attributes set using the provided dictionary.
 
         Args:
             **dictionary: Dictionary containing attribute values.
@@ -81,8 +82,11 @@ class Base:
         Returns:
             Base: Instance with attributes set.
         """
-        # Include 'width' and 'height' as arguments when creating the dummy instance
-        dummy_instance = cls(1, 1)  # Create a dummy instance with arbitrary ID (1), width (1), and height (1)
+        # Include 'width' and 'height'
+        # as arguments when creating the dummy instance
+        dummy_instance = cls(1, 1)
+        # Create a dummy instance
+        # with arbitrary ID (1), width (1), and height (1)
         dummy_instance.update(**dictionary)  # Update with real values
         return dummy_instance
 
@@ -109,7 +113,8 @@ class Base:
         Returns:
             dict: Dictionary representing the instance.
         """
-        return {key: getattr(self, key) for key in ['id', 'width', 'height', 'x', 'y']}
+        return {key: getattr(self, key)
+                for key in ['id', 'width', 'height', 'x', 'y']}
 
 
 class Rectangle(Base):
@@ -138,7 +143,9 @@ class Rectangle(Base):
 if __name__ == "__main__":
     r1 = Rectangle.create(**{'width': 2, 'height': 3})
     r2 = Rectangle.create(**{'width': 2, 'height': 3, 'x': 12})
-    r3 = Rectangle.create(**{'width': 2, 'height': 3, 'x': 12, 'y': 1, 'id': 89})
+    r3 = Rectangle.create(
+        **{'width': 2, 'height': 3, 'x': 12, 'y': 1, 'id': 89}
+    )
 
     print(r1)
     print(r2)
