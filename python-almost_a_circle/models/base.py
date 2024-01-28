@@ -103,7 +103,6 @@ class Base:
         except FileNotFoundError:
             return []
 
-
     def update(self, *args, **kwargs):
         """
         Update instance attributes with values from args and kwargs.
