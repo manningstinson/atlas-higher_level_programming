@@ -13,6 +13,10 @@ class Square(Rectangle):
         """Return a string representation of the Square"""
         return "[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y, self.width)
 
+    def area(self):
+        """Return the area of the Square"""
+        return super().area()
+
     # Additional methods or overrides can be added here if needed
 
 if __name__ == "__main__":
