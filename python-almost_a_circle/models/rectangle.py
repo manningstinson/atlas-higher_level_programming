@@ -1,4 +1,3 @@
-# models/rectangle.py
 #!/usr/bin/python3
 """ Rectangle Module """
 
@@ -10,11 +9,7 @@ class Rectangle(Base):
 
     def __init__(self, width, height, x=0, y=0, id=None):
         """ Constructor method """
-
-        # Call the super class with id
         super().__init__(id)
-
-        # Private instance attributes with public getter and setter
         self.width = width
         self.height = height
         self.x = x
@@ -90,17 +85,21 @@ class Rectangle(Base):
 
     def update(self, *args, **kwargs):
         """ Update the attributes of the rectangle """
-
-        # Define the order of attributes and their corresponding names
         attr_names = ["id", "width", "height", "x", "y"]
-
-        # Update attributes using positional arguments
         for i, arg in enumerate(args):
             setattr(self, attr_names[i], arg)
-
-        # Update attributes using keyword arguments
         for key, value in kwargs.items():
             setattr(self, key, value)
+
+    def to_dictionary(self):
+        """ Return the dictionary representation of a Rectangle """
+        return {
+            'id': self.id,
+            'width': self.width,
+            'height': self.height,
+            'x': self.x,
+            'y': self.y
+        }
 
 
 if __name__ == "__main__":
@@ -118,3 +117,6 @@ if __name__ == "__main__":
 
     r1.update(x=1, height=2, y=3, width=4)
     print(r1)
+
+    r1_dictionary = r1.to_dictionary()
+    print(r1_dictionary)
