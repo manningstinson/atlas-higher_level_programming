@@ -130,6 +130,21 @@ class Rectangle(Base):
         self.x = x
         self.y = y
 
+    @classmethod
+    def create(cls, **dictionary):
+        """
+        Create a new Rectangle instance with attributes from the provided dictionary.
+
+        Args:
+            **dictionary: Dictionary containing attribute values.
+
+        Returns:
+            Rectangle: Instance with attributes set.
+        """
+        dummy_instance = cls(1)  # Create a dummy instance with arbitrary ID (1)
+        dummy_instance.update(**dictionary)  # Update with real values
+        return dummy_instance
+
 
 class Square(Rectangle):
     """
@@ -150,5 +165,13 @@ class Square(Rectangle):
 
 
 if __name__ == "__main__":
+    r1 = Rectangle.create(**{'width': 2, 'height': 3})
+    r2 = Rectangle.create(**{'width': 2, 'height': 3, 'x': 12})
+    r3 = Rectangle.create(**{'width': 2, 'height': 3, 'x': 12, 'y': 1, 'id': 89})
+
     s1 = Square.create(**{'size': 2})
+
+    print(r1)
+    print(r2)
+    print(r3)
     print(s1)
