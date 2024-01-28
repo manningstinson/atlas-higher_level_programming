@@ -82,13 +82,27 @@ class Base:
         Returns:
             Base: Instance with attributes set.
         """
-        # Include 'width' and 'height'
-        # as arguments when creating the dummy instance
         dummy_instance = cls(1, 1)
-        # Create a dummy instance
-        # with arbitrary ID (1), width (1), and height (1)
-        dummy_instance.update(**dictionary)  # Update with real values
+        dummy_instance.update(**dictionary)
         return dummy_instance
+
+    @classmethod
+    def load_from_file(cls):
+        """
+        Return a list of instances from a JSON file.
+
+        Returns:
+            list: List of instances.
+        """
+        filename = cls.__name__ + ".json"
+        try:
+            with open(filename, "r") as file:
+                json_data = file.read()
+                data_list = cls.from_json_string(json_data)
+                return [cls.create(**data) for data in data_list]
+        except FileNotFoundError:
+            return []
+
 
     def update(self, *args, **kwargs):
         """
