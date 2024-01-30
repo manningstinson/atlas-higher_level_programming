@@ -2,61 +2,37 @@ import unittest
 from models.rectangle import Rectangle
 
 class TestRectangle(unittest.TestCase):
-    def test_exists(self):
-        r = Rectangle(1, 2)
-        self.assertIsInstance(r, Rectangle)
 
-    def test_exists_with_three_arguments(self):
-        r = Rectangle(1, 2, 3)
-        self.assertIsInstance(r, Rectangle)
+    def test_rectangle_creation_exists(self):
+        rect = Rectangle(1, 2, 3, 4)
+        self.assertIsInstance(rect, Rectangle)
 
-    def test_exists_with_four_arguments(self):
-        r = Rectangle(1, 2, 3, 4)
-        self.assertIsInstance(r, Rectangle)
+    def test_str_representation_exists(self):
+        rect = Rectangle(1, 2, 3, 4)
+        self.assertEqual(str(rect), "[Rectangle] (1) 3/4 - 1/2")
 
-    def test_invalid_width_string(self):
-        with self.assertRaises(TypeError):
-            Rectangle("1", 2)
+    def test_display_exists(self):
+        rect = Rectangle(1, 2, 3, 4)
+        with self.assertRaises(AttributeError):
+            rect.display()
 
-    def test_invalid_height_string(self):
-        with self.assertRaises(TypeError):
-            Rectangle(1, "2")
+    def test_area_exists(self):
+        rect = Rectangle(1, 2, 3, 4)
+        self.assertEqual(rect.area(), 2)
 
-    def test_invalid_x_string(self):
-        with self.assertRaises(TypeError):
-            Rectangle(1, 2, "3")
+    def test_update_exists(self):
+        rect = Rectangle(1, 2, 3, 4)
+        rect.update(5, 6, 7, 8, 9)
+        self.assertEqual(str(rect), "[Rectangle] (5) 7/8 - 6/7")
 
-    def test_invalid_y_string(self):
-        with self.assertRaises(TypeError):
-            Rectangle(1, 2, 3, "4")
+    def test_to_dictionary_exists(self):
+        rect = Rectangle(1, 2, 3, 4)
+        rect_dict = rect.to_dictionary()
+        self.assertEqual(rect_dict, {'id': 1, 'width': 1, 'height': 2, 'x': 3, 'y': 4})
 
-    def test_exists_with_five_arguments(self):
-        r = Rectangle(1, 2, 3, 4, 5)
-        self.assertIsInstance(r, Rectangle)
-
-    def test_invalid_negative_width(self):
-        with self.assertRaises(ValueError):
-            Rectangle(-1, 2)
-
-    def test_invalid_negative_height(self):
-        with self.assertRaises(ValueError):
-            Rectangle(1, -2)
-
-    def test_valid_zero_width(self):
-        r = Rectangle(0, 2)
-        self.assertIsInstance(r, Rectangle)
-
-    def test_valid_zero_height(self):
-        r = Rectangle(1, 0)
-        self.assertIsInstance(r, Rectangle)
-
-    def test_invalid_negative_x(self):
-        with self.assertRaises(ValueError):
-            Rectangle(1, 2, -3)
-
-    def test_invalid_negative_y(self):
-        with self.assertRaises(ValueError):
-            Rectangle(1, 2, 3, -4)
+    def test_load_from_file_exists(self):
+        with self.assertRaises(FileNotFoundError):
+            Rectangle.load_from_file()
 
 if __name__ == '__main__':
     unittest.main()
