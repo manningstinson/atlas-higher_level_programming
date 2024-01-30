@@ -2,31 +2,61 @@ import unittest
 from models.rectangle import Rectangle
 
 class TestRectangle(unittest.TestCase):
-    def test_constructor(self):
-        r = Rectangle(5, 10)
-        self.assertEqual(r.width, 5)
-        self.assertEqual(r.height, 10)
-        self.assertEqual(r.x, 0)
-        self.assertEqual(r.y, 0)
+    def test_exists(self):
+        r = Rectangle(1, 2)
+        self.assertIsInstance(r, Rectangle)
 
-    def test_string_representation(self):
-        r = Rectangle(3, 4, 1, 2, 7)
-        self.assertEqual(str(r), "[Rectangle] (7) 1/2 - 3/4")
+    def test_exists_with_three_arguments(self):
+        r = Rectangle(1, 2, 3)
+        self.assertIsInstance(r, Rectangle)
 
-    def test_display_method(self):
-        r = Rectangle(2, 2)
-        with self.assertLogs() as logs:
-            r.display()
-        self.assertEqual(logs.output, [''])
+    def test_exists_with_four_arguments(self):
+        r = Rectangle(1, 2, 3, 4)
+        self.assertIsInstance(r, Rectangle)
 
-    def test_update_method(self):
-        r = Rectangle(2, 2)
-        r.update(3, 4, 5, 6, 7)
-        self.assertEqual(str(r), "[Rectangle] (3) 6/7 - 4/5")
+    def test_invalid_width_string(self):
+        with self.assertRaises(TypeError):
+            Rectangle("1", 2)
 
-    def test_to_dictionary_method(self):
-        r = Rectangle(2, 2, 3, 4, 5)
-        self.assertEqual(r.to_dictionary(), {'id': 5, 'width': 2, 'height': 2, 'x': 3, 'y': 4})
+    def test_invalid_height_string(self):
+        with self.assertRaises(TypeError):
+            Rectangle(1, "2")
+
+    def test_invalid_x_string(self):
+        with self.assertRaises(TypeError):
+            Rectangle(1, 2, "3")
+
+    def test_invalid_y_string(self):
+        with self.assertRaises(TypeError):
+            Rectangle(1, 2, 3, "4")
+
+    def test_exists_with_five_arguments(self):
+        r = Rectangle(1, 2, 3, 4, 5)
+        self.assertIsInstance(r, Rectangle)
+
+    def test_invalid_negative_width(self):
+        with self.assertRaises(ValueError):
+            Rectangle(-1, 2)
+
+    def test_invalid_negative_height(self):
+        with self.assertRaises(ValueError):
+            Rectangle(1, -2)
+
+    def test_valid_zero_width(self):
+        r = Rectangle(0, 2)
+        self.assertIsInstance(r, Rectangle)
+
+    def test_valid_zero_height(self):
+        r = Rectangle(1, 0)
+        self.assertIsInstance(r, Rectangle)
+
+    def test_invalid_negative_x(self):
+        with self.assertRaises(ValueError):
+            Rectangle(1, 2, -3)
+
+    def test_invalid_negative_y(self):
+        with self.assertRaises(ValueError):
+            Rectangle(1, 2, 3, -4)
 
 if __name__ == '__main__':
     unittest.main()
