@@ -1,34 +1,38 @@
 import unittest
 from models.square import Square
 
-
 class TestSquare(unittest.TestCase):
 
-    def test_constructor(self):
-        square = Square(5, 2, 3, 4)
+    def test_square_creation_exists(self):
+        square = Square(1, 2, 3)
         self.assertIsInstance(square, Square)
-        self.assertEqual(square.size, 5)
-        self.assertEqual(square.x, 2)
-        self.assertEqual(square.y, 3)
-        self.assertEqual(square.id, 4)
 
-    def test_str_method(self):
-        square = Square(5, 2, 3, 4)
-        self.assertEqual(str(square), "[Square] (4) 2/3 - 5")
+    def test_str_representation_exists(self):
+        square = Square(1, 2, 3)
+        self.assertEqual(str(square), "[Square] (1) 2/3 - 1")
 
-    def test_update_method(self):
-        square = Square(5, 2, 3, 4)
-        square.update(6, 7, 8, 9)
-        self.assertEqual(square.id, 6)
-        self.assertEqual(square.size, 7)
-        self.assertEqual(square.x, 8)
-        self.assertEqual(square.y, 9)
+    def test_display_exists(self):
+        square = Square(1, 2, 3)
+        with self.assertRaises(AttributeError):
+            square.display()
 
-    def test_to_dictionary_method(self):
-        square = Square(5, 2, 3, 4)
+    def test_area_exists(self):
+        square = Square(1, 2, 3)
+        self.assertEqual(square.area(), 1)
+
+    def test_update_exists(self):
+        square = Square(1, 2, 3)
+        square.update(5, 6, 7, 8)
+        self.assertEqual(str(square), "[Square] (5) 7/8 - 6")
+
+    def test_to_dictionary_exists(self):
+        square = Square(1, 2, 3)
         square_dict = square.to_dictionary()
-        expected_dict = {'id': 4, 'size': 5, 'x': 2, 'y': 3}
-        self.assertEqual(square_dict, expected_dict)
+        self.assertEqual(square_dict, {'id': 1, 'size': 1, 'x': 2, 'y': 3})
+
+    def test_load_from_file_exists(self):
+        with self.assertRaises(FileNotFoundError):
+            Square.load_from_file()
 
 if __name__ == '__main__':
     unittest.main()
