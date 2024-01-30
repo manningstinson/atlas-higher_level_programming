@@ -1,49 +1,55 @@
 import unittest
-from your_module_name import Base, Rectangle
+from models.base import Base
 
-class TestBaseClass(unittest.TestCase):
+class TestBase(unittest.TestCase):
 
-    def test_auto_assign_id(self):
+    def test_auto_assign_id_exists(self):
         obj1 = Base()
         obj2 = Base()
         self.assertEqual(obj1.id, 1)
         self.assertEqual(obj2.id, 2)
 
-    def test_auto_assign_incremental_id(self):
+    def test_auto_assign_id_incremented_exists(self):
         obj1 = Base()
         obj2 = Base()
-        obj3 = Base()
-        self.assertEqual(obj3.id, obj2.id + 1)
+        self.assertEqual(obj1.id, 1)
+        self.assertEqual(obj2.id, 2)
 
-    def test_specified_id(self):
+    def test_base_with_id_exists(self):
         obj = Base(89)
         self.assertEqual(obj.id, 89)
 
-    def test_to_json_string_none(self):
-        result = Base.to_json_string(None)
-        self.assertEqual(result, "[]")
+    def test_to_json_string_exists(self):
+        json_str = Base.to_json_string(None)
+        self.assertEqual(json_str, "[]")
 
-    def test_to_json_string_empty_list(self):
-        result = Base.to_json_string([])
-        self.assertEqual(result, "[]")
+    def test_to_json_string_empty_list_exists(self):
+        json_str = Base.to_json_string([])
+        self.assertEqual(json_str, "[]")
 
-    def test_to_json_string_with_data(self):
-        data = [{'id': 12}]
-        result = Base.to_json_string(data)
-        self.assertEqual(result, '[{"id": 12}]')
+    def test_to_json_string_with_id_exists(self):
+        json_str = Base.to_json_string([{'id': 12}])
+        self.assertEqual(json_str, '[{"id": 12}]')
 
-    def test_from_json_string_none(self):
-        result = Base.from_json_string(None)
-        self.assertEqual(result, [])
+    def test_to_json_string_returns_string_exists(self):
+        json_str = Base.to_json_string([{'id': 12}])
+        self.assertIsInstance(json_str, str)
 
-    def test_from_json_string_empty_string(self):
-        result = Base.from_json_string("[]")
-        self.assertEqual(result, [])
+    def test_from_json_string_exists(self):
+        obj_list = Base.from_json_string(None)
+        self.assertEqual(obj_list, [])
 
-    def test_from_json_string_with_data(self):
-        json_str = '[{"id": 89}]'
-        result = Base.from_json_string(json_str)
-        self.assertEqual(result, [{'id': 89}])
+    def test_from_json_string_empty_list_exists(self):
+        obj_list = Base.from_json_string("[]")
+        self.assertEqual(obj_list, [])
+
+    def test_from_json_string_with_id_exists(self):
+        obj_list = Base.from_json_string('[{ "id": 89 }]')
+        self.assertEqual(obj_list, [{'id': 89}])
+
+    def test_from_json_string_returns_list_exists(self):
+        obj_list = Base.from_json_string('[{ "id": 89 }]')
+        self.assertIsInstance(obj_list, list)
 
 if __name__ == '__main__':
     unittest.main()
