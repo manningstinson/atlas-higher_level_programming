@@ -1,3 +1,27 @@
+#!/usr/bin/python3
+"""
+Script to list all states with names
+starting with 'N' from the database hbtn_0e_0_usa.
+
+Usage:
+    ./1-filter_states.py <username> <password> <database>
+
+Arguments:
+    <username>: MySQL username.
+    <password>: MySQL password.
+    <database>: Database name.
+
+Example:
+    ./1-filter_states.py root root hbtn_0e_0_usa
+
+This script connects to a MySQL server
+running on localhost at port 3306 with the provided username,
+password, and database name, retrieves
+the states with names starting with 'N', sorts them by id,
+and displays them.
+"""
+
+
 import MySQLdb
 
 def filter_states(username, password, database):
