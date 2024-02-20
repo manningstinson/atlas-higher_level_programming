@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Script to list all states with names 
+Script to list all states with names
 starting with 'N' from the database hbtn_0e_0_usa.
 
 Usage:
@@ -14,11 +14,11 @@ Arguments:
 Example:
     ./1-filter_states.py root root hbtn_0e_0_usa
 
-This script connects to a MySQL server 
-running on localhost at port 3306 with 
+This script connects to a MySQL server
+running on localhost at port 3306 with
 the provided username,
-password, and database name, 
-retrieves the states with names 
+password, and database name,
+retrieves the states with names
 starting with 'N', sorts them by id,
 and displays them.
 """
@@ -26,6 +26,7 @@ and displays them.
 
 import MySQLdb
 import sys
+
 
 def main():
     if len(sys.argv) != 4:
