@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """Defines the City class for ORM and database operations."""
 
 import sqlalchemy

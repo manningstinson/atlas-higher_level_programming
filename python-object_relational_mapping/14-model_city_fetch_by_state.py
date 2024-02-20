@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """Fetches and prints all City objects from the database."""
 
 import sys
