@@ -1,71 +1,44 @@
-#!/usr/bin/python3
-"""
-Script to list all states with names
-starting with 'N' from the database hbtn_0e_0_usa.
-
-Usage:
-    ./1-filter_states.py <username> <password> <database>
-
-Arguments:
-    <username>: MySQL username.
-    <password>: MySQL password.
-    <database>: Database name.
-
-Example:
-    ./1-filter_states.py root root hbtn_0e_0_usa
-
-This script connects to a MySQL server
-running on localhost at port 3306 with the provided username,
-password, and database name, retrieves
-the states with names starting with 'N', sorts them by id,
-and displays them.
-"""
-
 import MySQLdb
-import sys
 
+def filter_states(username, password, database):
+    """Connects to the database, filters states with names starting with "N",
+    sorts results by ID, and displays them in the desired format.
 
-def main():
-    if len(sys.argv) != 4:
-        print("Usage: {} username password database".format(sys.argv[0]))
-        sys.exit(1)
-
-    username = sys.argv[1]
-    password = sys.argv[2]
-    database = sys.argv[3]
+    Args:
+        username (str): The username for database access.
+        password (str): The password for database access.
+        database (str): The name of the database to connect to.
+    """
 
     try:
-        # Connect to MySQL database
         db = MySQLdb.connect(
-            host="localhost", port=3306, user=username,
-            passwd=password, db=database
+            host="localhost",
+            user=username,
+            password=password,
+            database=database,
+            port=3306
         )
-
-        # Create a cursor object using cursor() method
         cursor = db.cursor()
 
-        # Execute SQL query to select states starting with 'N'
-        cursor.execute(
-            "SELECT * FROM states WHERE "
-            "name LIKE 'N%' OR "
-            "name LIKE 'n%' "
-            "ORDER BY id ASC"
-        )
-        # Fetch all the rows in a list of lists
-        results = cursor.fetchall()
+        # Filter states with names starting with "N" and sort by ID (case-insensitive)
+        query = "SELECT * FROM states WHERE name LIKE 'N%' COLLATE utf8mb4_general_ci ORDER BY id ASC"
+        cursor.execute(query)
 
-        # Display results
-        for row in results:
+        # Fetch and display results
+        for row in cursor.fetchall():
             print(row)
 
-    except MySQLdb.Error as e:
-        print("MySQL Error {}: {}".format(e.args[0], e.args[1]))
-        sys.exit(1)
+    except MySQLdb.Error as err:
+        print("Error connecting to database:", err)
 
     finally:
-        # Close the database connection
-        db.close()
-
+        if cursor:
+            cursor.close()
+        if db:
+            db.close()
 
 if __name__ == "__main__":
-    main()
+    username = "root"
+    password = "root"  # Replace with your actual password
+    database = "test_1"  # Use the correct database name
+    filter_states(username, password, database)
