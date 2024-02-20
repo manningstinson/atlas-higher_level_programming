@@ -2,12 +2,12 @@
 """
 Script to list all cities from the database hbtn_0e_4_usa.
 
-This script takes 3 arguments: 
+This script takes 3 arguments:
 mysql username
 mysql password
 and database name.
 
-It connects to a MySQL server 
+It connects to a MySQL server
 running on localhost at port 3306.
 
 Results are sorted in ascending order by cities.id.
@@ -40,12 +40,12 @@ def list_cities_by_state(username, password, database):
     """List all cities by state from the database."""
     # Connect to the database
     db = MySQLdb.connect(
-    host='localhost',
-    port=3306,
-    user=username,
-    passwd=password,
-    db=database
-)
+        host='localhost',
+        port=3306,
+        user=username,
+        passwd=password,
+        db=database
+    )
 
     # Create a cursor object
     cursor = db.cursor()
