@@ -1,4 +1,16 @@
 #!/usr/bin/python3
+"""
+This script connects to a MySQL database and retrieves a list of states from the specified table.
+The script takes three arguments: MySQL username, password, and database name.
+Results are sorted in ascending order by state ID and displayed as they are retrieved.
+
+Usage:
+    ./0-select_states.py <username> <password> <database>
+
+Example:
+    ./0-select_states.py root root hbtn_0e_0_usa
+"""
+
 import MySQLdb
 import sys
 
