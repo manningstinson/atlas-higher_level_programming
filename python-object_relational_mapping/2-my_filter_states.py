@@ -36,7 +36,13 @@ def filter_states(username, password, database, state_name):
         cursor = db.cursor()
 
         # Prepare SQL query
-        query = "SELECT * FROM states WHERE name = %s ORDER BY id ASC"
+        # Prepare SQL query
+        query = (
+            "SELECT * "
+            "FROM states "
+            "WHERE BINARY name = %s "
+            "ORDER BY id ASC"
+            )
 
         # Execute the query
         cursor.execute(query, (state_name,))
