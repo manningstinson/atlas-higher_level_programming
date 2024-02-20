@@ -46,8 +46,12 @@ def main():
 
         # Execute SQL query to select states starting with 'N'
         cursor.execute(
-            "SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC"
+            "SELECT * FROM states WHERE "
+            "name LIKE 'N%' OR "
+            "name LIKE 'n%' "
+            "ORDER BY id ASC"
             )
+
         # Fetch all the rows in a list of lists
         results = cursor.fetchall()
 
