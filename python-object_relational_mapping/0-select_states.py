@@ -1,8 +1,11 @@
 #!/usr/bin/python3
 """
-This script connects to a MySQL database and retrieves a list of states from the specified table.
-The script takes three arguments: MySQL username, password, and database name.
-Results are sorted in ascending order by state ID and displayed as they are retrieved.
+This script connects to a MySQL database
+and retrieves a list of states from the specified table.
+The script takes three arguments:
+MySQL username, password, and database name.
+Results are sorted in ascending order by
+state ID and displayed as they are retrieved.
 
 Usage:
     ./0-select_states.py <username> <password> <database>
@@ -13,6 +16,7 @@ Example:
 
 import MySQLdb
 import sys
+
 
 def main():
     if len(sys.argv) != 4:
@@ -25,7 +29,10 @@ def main():
 
     try:
         # Connect to MySQL database
-        db = MySQLdb.connect(host="localhost", port=3306, user=username, passwd=password, db=database)
+        db = MySQLdb.connect(
+            host="localhost", port=3306, user=username,
+            passwd=password, db=database
+        )
 
         # Create a cursor object using cursor() method
         cursor = db.cursor()
@@ -47,6 +54,7 @@ def main():
     finally:
         # Close the database connection
         db.close()
+
 
 if __name__ == "__main__":
     main()
