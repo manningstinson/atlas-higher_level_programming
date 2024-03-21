@@ -1,4 +1,4 @@
-// 1-multi_languages.js
+#!/usr/bin/node
 
 // Print the first line
 console.log("C is fun");
