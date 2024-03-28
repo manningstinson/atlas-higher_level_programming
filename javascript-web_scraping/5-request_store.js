@@ -24,6 +24,6 @@ request.get(url, (error, response, body) => {
       console.error('Error writing file:', err);
       return;
     }
-    console.log('Webpage content has been successfully stored in:', filePath);
+    console.log(filePath);
   });
 });
