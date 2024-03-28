@@ -1,6 +1,7 @@
 #!/usr/bin/node
 
 const request = require('request');
+
 const apiUrl = process.argv[2];
 
 request.get(apiUrl, (error, response, body) => {
@@ -16,14 +17,10 @@ request.get(apiUrl, (error, response, body) => {
     return;
   }
 
-  const films = JSON.parse(body);
-  let wedgeAntillesMovies = 0;
+  const films = JSON.parse(body).results;
+  const wedgeAntillesMovies = films.filter((film) =>
+    film.characters.includes('https://swapi-api.hbtn.io/api/people/18/')
+  );
 
-  for (const film of films) {
-    if (film.characters.includes('https://swapi-api.hbtn.io/api/people/18/')) {
-      wedgeAntillesMovies++;
-    }
-  }
-
-  console.log(wedgeAntillesMovies);
+  console.log(wedgeAntillesMovies.length);
 });
